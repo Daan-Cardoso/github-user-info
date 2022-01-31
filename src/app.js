@@ -7,13 +7,14 @@ import ajax from '@fdaciuk/ajax'
 class App extends Component {
   constructor () {
     super()
-  
-    this.getRepos().bind(this)
-  
+
+    this.getRepos = this.getRepos.bind(this)
+
     this.state = {
       userInfo: null,
       repos: [],
-      starred: []
+      starred: [],
+      isLoading: false
     }
   }
 
@@ -23,6 +24,7 @@ class App extends Component {
         userinfo={this.state.userInfo}
         repos={this.state.repos}
         starred={this.state.starred}
+        isLoading={this.state.isLoading}
         handleSearch={(e) => this.handleSearch(e)}
         getRepos={this.getRepos()}
         getStarred={this.getRepos('starred')}
@@ -35,8 +37,10 @@ class App extends Component {
     const value = e.target.value
     const enter = 13
     const baseUrl = 'https://api.github.com/users/'
-  
+
     if (keyCode === enter) {
+      this.setState({ isLoading: true })
+
       ajax().get(`${baseUrl}${value}`)
         .then(r => this.setState({
           userInfo: {
@@ -48,16 +52,17 @@ class App extends Component {
             following: r.following
           }
         }))
+        .always(() => this.setState({ isLoading: false }))
     }
   }
 
   getRepos (type = 'repos') {
     return (e) => {
       const user = this.state.userInfo.login
-      const baseUrl ='https://api.github.com/users/'
+      const baseUrl = 'https://api.github.com/users/'
       const repos = type === 'repos' ? '/repos' : ''
       const starred = type === 'starred' ? '/starred' : ''
-  
+
       ajax().get(`${baseUrl}${user}${repos}${starred}`)
         .then(r => this.setState({
           [type]: r.map(repo => {
