@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap');
+
+:root {
+  --dark-blue: #051D3B;
+  --blue-300: #5081FB;
+  --blue-200: #7BA4FC;
+  --blue-100: #96B9FD;
+  --white-glass: rgba(255, 255, 255, 0.16);
+  --white-glass-highlight: rgba(255, 255, 255, 0.24);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--dark-blue);
+  color: white;
+  font: 16px/24px;
+}
+
+.title {
+  color: white;
+  font-size: 21px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 1080px;
+  width: 100%;
+  min-width: 375px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.default-background {
+  background-color: var(--white-glass);
+}
+
+.default-border-radius {
+  border-radius: 8px;
+}
+
+.input-search {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 21px;
+  line-height: 32px;
+  border: none;
+  color: #fff;
+}
+
+.input-search:hover {
+  background-color: var(--white-glass-highlight);
+}
+
+.input-search:focus {
+  outline: none;
+}
+
+.user-info {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-info__link {
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+.user-info__link:hover {
+  color: var(--white-glass-highlight);
+}
+
+.user-info__link:visited {
+  color: inherit;
+}
+
+.user-info__photo {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.repo-info {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.repo-info__item {
+  margin: 10px 0;
+}
+
+.actions {
+  display: flex;
+  column-gap: 20px;
+}
+
+.actions__buttons {
+  display: block;
+  width: 254px;
+  height: 56px;
+  color: var(--dark-blue);
+  background-color: var(--blue-300);
+  border: none;
+  border-radius: 8px;
+  font-size: 21px;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.actions__buttons:hover {
+  background-color: var(--blue-200);
+}
+
+.actions__buttons:active {
+  border: 4px solid #5081fbb8;
+}
+
+.actions__buttons:focus {
+  background-color: var(--blue-100);
+}
+
+.repos {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 10px;
+}
+
+.repos__list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.repos__link {
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+.repos__link:hover {
+  color: var(--white-glass-highlight);
+}
+
+.repos__link:visited {
+  color: inherit;
+}

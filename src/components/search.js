@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types'
 const Search = ({ handleSearch, isDisable }) => (
   <div className='search'>
     <input
+      className='input-search default-background default-border-radius'
       type='search'
       placeholder='Digite o nome do usuário no GitHub'
       onKeyUp={handleSearch}

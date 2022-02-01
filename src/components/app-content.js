@@ -16,7 +16,7 @@ const AppContent = ({
   getStarred,
   isLoading
 }) => (
-  <div>
+  <div className='content'>
     <Search isDisable={isLoading} handleSearch={handleSearch} />
 
     {!!isLoading && <p>Carregando..</p>}
@@ -27,14 +27,12 @@ const AppContent = ({
 
     {repos.length > 0 &&
       <Repos
-        className='repos'
         title='Repositórios'
         repos={repos}
       />}
 
     {starred.length > 0 &&
       <Repos
-        className='starred'
         title='Favoritos'
         repos={starred}
       />}

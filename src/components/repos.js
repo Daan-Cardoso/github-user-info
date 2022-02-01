@@ -3,13 +3,13 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
-const Repos = ({ className, title, repos }) => (
-  <div className={className}>
-    <h2>{title}</h2>
-    <ul>
+const Repos = ({ title, repos }) => (
+  <div className='repos default-background default-border-radius'>
+    <h2 className='repos__title title'>{title}</h2>
+    <ul className='repos__list'>
       {repos.map((repo) => (
-        <li key={repo.id}>
-          <a href={repo.link}>{repo.name}</a>
+        <li className='repos__item' key={repo.id}>
+          <a className='repos__link' href={repo.link}>{repo.name}</a>
         </li>
       ))}
     </ul>
@@ -21,7 +21,6 @@ Repos.defaultProps = {
 }
 
 Repos.propTypes = {
-  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   repos: PropTypes.array
 }
