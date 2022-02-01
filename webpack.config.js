@@ -36,11 +36,6 @@ module.exports = validate({
       exclude: /node_modules/,
       include: /src/,
       loader: 'babel'
-    },{
-      test: /\.css$/,
-      include: /src/,
-      loader: ['css-loader', 'style-loader']
-    }
-  ]
+    }]
   }
 })
